@@ -318,7 +318,7 @@ Files included in the development package:
 Port Notes:
 
 ----- version 0.92.0-1 -----
-Initial release for Cygwin.
+Version bump, built in /usr for modular X11.
 
 
 Cygwin port maintained by:
