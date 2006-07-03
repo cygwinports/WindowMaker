@@ -1,0 +1,325 @@
+WindowMaker
+------------------------------------------
+Window Maker is the GNU window manager for the X Window System. It was
+designed to emulate the look and feel of part of the NEXTSTEP(tm) GUI.
+It's supposed to be relatively fast and small, feature rich, easy to
+configure and easy to use, with a simple and elegant appearance borrowed
+from NEXTSTEP(tm).
+
+Runtime requirements:
+  cygwin-1.5.20-1
+  libX11_6-1.0.2-1
+  libXext6-1.0.1-1
+  libXft2-2.1.10-1
+  libXpm4-3.5.5-1
+  libjpeg62-6b-11
+  libpng12-1.2.8-2
+  libtiff5-3.7.3-1
+  libungif4-4.1.4-1
+
+Build requirements:
+(besides corresponding -devel packages)
+  cygwin-1.5.20-1
+  autoconf2.5-2.59-2
+  automake1.4-1.4p6-1
+  binutils-20050610-1
+  cygport-0.2.2-1
+  gawk-3.1.5-2
+  gcc-core-3.4.4-1
+  libtool1.5-1.5.22-1
+  make-3.80-1
+  sed-4.1.5-1
+
+Canonical website:
+  http://windowmaker.info/
+
+Canonical download:
+  ftp://windowmaker.info/pub/source/release/
+
+-------------------------------------------
+
+Build instructions:
+  unpack WindowMaker-0.92.0-X-src.tar.bz2
+    if you use setup to install this src package, it will be
+	 unpacked under /usr/src automatically
+  cd /usr/src
+  cygport ./WindowMaker-0.92.0-X.cygport all
+
+This will create:
+  /usr/src/WindowMaker-0.92.0-X-src.tar.bz2
+  /usr/src/WindowMaker-0.92.0-X.tar.bz2
+  /usr/src/WindowMaker-devel-0.92.0-X.tar.bz2
+
+-------------------------------------------
+
+Files included in the binary package:
+
+  /etc/WindowMaker/WMGLOBAL
+  /etc/WindowMaker/WMRootMenu
+  /etc/WindowMaker/WMState
+  /etc/WindowMaker/WMWindowAttributes
+  /etc/WindowMaker/WindowMaker
+  /etc/postinstall/WindowMaker.sh
+  /etc/postinstall/_usr_share_WindowMaker_Icons.tar.bz2
+  /etc/preremove/WindowMaker.sh
+  /usr/bin/WPrefs.exe
+  /usr/bin/convertfonts.exe
+  /usr/bin/cygwraster-3.dll
+  /usr/bin/get-wings-flags
+  /usr/bin/get-wraster-flags
+  /usr/bin/get-wutil-flags
+  /usr/bin/geticonset.exe
+  /usr/bin/getstyle.exe
+  /usr/bin/seticons.exe
+  /usr/bin/setstyle.exe
+  /usr/bin/wdread.exe
+  /usr/bin/wdwrite.exe
+  /usr/bin/wkdemenu.pl
+  /usr/bin/wm-oldmenu2new
+  /usr/bin/wmagnify.exe
+  /usr/bin/wmaker.exe
+  /usr/bin/wmaker.inst
+  /usr/bin/wmsetbg.exe
+  /usr/bin/wmsetup.exe
+  /usr/bin/wxcopy.exe
+  /usr/bin/wxpaste.exe
+  /usr/share/WINGs/Images.tiff
+  /usr/share/WINGs/Images.xpm
+  /usr/share/WINGs/defaultIcon.tiff
+  /usr/share/WINGs/defaultIcon.xpm
+  /usr/share/WPrefs/WPrefs.tiff
+  /usr/share/WPrefs/WPrefs.xpm
+  /usr/share/WPrefs/tiff/advancetonewworkspace.tiff
+  /usr/share/WPrefs/tiff/animations.tiff
+  /usr/share/WPrefs/tiff/appearance.tiff
+  /usr/share/WPrefs/tiff/clip.tiff
+  /usr/share/WPrefs/tiff/configs.tiff
+  /usr/share/WPrefs/tiff/cycleworkspaces.tiff
+  /usr/share/WPrefs/tiff/dock.tiff
+  /usr/share/WPrefs/tiff/dontlinkworkspaces.tiff
+  /usr/share/WPrefs/tiff/ergonomic.tiff
+  /usr/share/WPrefs/tiff/expert.tiff
+  /usr/share/WPrefs/tiff/fonts.tiff
+  /usr/share/WPrefs/tiff/iconprefs.tiff
+  /usr/share/WPrefs/tiff/keyboard.tiff
+  /usr/share/WPrefs/tiff/keyboardprefs.tiff
+  /usr/share/WPrefs/tiff/keyshortcuts.tiff
+  /usr/share/WPrefs/tiff/menualign1.tiff
+  /usr/share/WPrefs/tiff/menualign2.tiff
+  /usr/share/WPrefs/tiff/menuprefs.tiff
+  /usr/share/WPrefs/tiff/menus.tiff
+  /usr/share/WPrefs/tiff/moreanim.tiff
+  /usr/share/WPrefs/tiff/mousesettings.tiff
+  /usr/share/WPrefs/tiff/mousespeed.tiff
+  /usr/share/WPrefs/tiff/msty1.tiff
+  /usr/share/WPrefs/tiff/msty2.tiff
+  /usr/share/WPrefs/tiff/msty3.tiff
+  /usr/share/WPrefs/tiff/newstyle.tiff
+  /usr/share/WPrefs/tiff/nonopaque.tiff
+  /usr/share/WPrefs/tiff/oldstyle.tiff
+  /usr/share/WPrefs/tiff/opaque.tiff
+  /usr/share/WPrefs/tiff/paths.tiff
+  /usr/share/WPrefs/tiff/smooth.tiff
+  /usr/share/WPrefs/tiff/sound.tiff
+  /usr/share/WPrefs/tiff/speed0.tiff
+  /usr/share/WPrefs/tiff/speed0s.tiff
+  /usr/share/WPrefs/tiff/speed1.tiff
+  /usr/share/WPrefs/tiff/speed1s.tiff
+  /usr/share/WPrefs/tiff/speed2.tiff
+  /usr/share/WPrefs/tiff/speed2s.tiff
+  /usr/share/WPrefs/tiff/speed3.tiff
+  /usr/share/WPrefs/tiff/speed3s.tiff
+  /usr/share/WPrefs/tiff/speed4.tiff
+  /usr/share/WPrefs/tiff/speed4s.tiff
+  /usr/share/WPrefs/tiff/tdel.tiff
+  /usr/share/WPrefs/tiff/tedit.tiff
+  /usr/share/WPrefs/tiff/textr.tiff
+  /usr/share/WPrefs/tiff/theme.tiff
+  /usr/share/WPrefs/tiff/timer0.tiff
+  /usr/share/WPrefs/tiff/timer0s.tiff
+  /usr/share/WPrefs/tiff/timer1.tiff
+  /usr/share/WPrefs/tiff/timer1s.tiff
+  /usr/share/WPrefs/tiff/timer2.tiff
+  /usr/share/WPrefs/tiff/timer2s.tiff
+  /usr/share/WPrefs/tiff/timer3.tiff
+  /usr/share/WPrefs/tiff/timer3s.tiff
+  /usr/share/WPrefs/tiff/timer4.tiff
+  /usr/share/WPrefs/tiff/timer4s.tiff
+  /usr/share/WPrefs/tiff/timer5.tiff
+  /usr/share/WPrefs/tiff/timer5s.tiff
+  /usr/share/WPrefs/tiff/tnew.tiff
+  /usr/share/WPrefs/tiff/whandling.tiff
+  /usr/share/WPrefs/tiff/windowfocus.tiff
+  /usr/share/WPrefs/tiff/workspace.tiff
+  /usr/share/WPrefs/tiff/workspacename.tiff
+  /usr/share/WPrefs/tiff/xis.tiff
+  /usr/share/WindowMaker/Backgrounds/BlueImage.jpeg
+  /usr/share/WindowMaker/IconSets/Default.iconset
+  /usr/share/WindowMaker/Pixmaps/swback.png
+  /usr/share/WindowMaker/Pixmaps/swback2.png
+  /usr/share/WindowMaker/Pixmaps/swtile.png
+  /usr/share/WindowMaker/Pixmaps/tile.tiff
+  /usr/share/WindowMaker/Pixmaps/tile.xpm
+  /usr/share/WindowMaker/README
+  /usr/share/WindowMaker/README.themes
+  /usr/share/WindowMaker/Styles/Autumn.style
+  /usr/share/WindowMaker/Styles/Black.style
+  /usr/share/WindowMaker/Styles/BlackTexture.style
+  /usr/share/WindowMaker/Styles/Blue.style
+  /usr/share/WindowMaker/Styles/BlueDawn.style
+  /usr/share/WindowMaker/Styles/BlueishGreen.style
+  /usr/share/WindowMaker/Styles/Brown.style
+  /usr/share/WindowMaker/Styles/Brownish.style
+  /usr/share/WindowMaker/Styles/Chumbo.style
+  /usr/share/WindowMaker/Styles/Copper.style
+  /usr/share/WindowMaker/Styles/DarkBlue.style
+  /usr/share/WindowMaker/Styles/DarkRed.style
+  /usr/share/WindowMaker/Styles/Emerald.style
+  /usr/share/WindowMaker/Styles/Fire.style
+  /usr/share/WindowMaker/Styles/Food.style
+  /usr/share/WindowMaker/Styles/Golden.style
+  /usr/share/WindowMaker/Styles/Green.style
+  /usr/share/WindowMaker/Styles/GreyBlue.style
+  /usr/share/WindowMaker/Styles/Gtk.style
+  /usr/share/WindowMaker/Styles/IRednBlue.style
+  /usr/share/WindowMaker/Styles/Interlace.style
+  /usr/share/WindowMaker/Styles/LightBlue.style
+  /usr/share/WindowMaker/Styles/NewBlue.style
+  /usr/share/WindowMaker/Styles/NightSky.style
+  /usr/share/WindowMaker/Styles/Pastel.style
+  /usr/share/WindowMaker/Styles/Pink.style
+  /usr/share/WindowMaker/Styles/Pumpkin.style
+  /usr/share/WindowMaker/Styles/Purple.style
+  /usr/share/WindowMaker/Styles/Purplish.style
+  /usr/share/WindowMaker/Styles/Red.style
+  /usr/share/WindowMaker/Styles/RednBlue.style
+  /usr/share/WindowMaker/Styles/Spring.style
+  /usr/share/WindowMaker/Styles/Summer.style
+  /usr/share/WindowMaker/Styles/Traditional.style
+  /usr/share/WindowMaker/Styles/VioletBlue.style
+  /usr/share/WindowMaker/Themes/Default.style
+  /usr/share/WindowMaker/Themes/OpenStep.style
+  /usr/share/WindowMaker/Themes/Pastel.style
+  /usr/share/WindowMaker/Themes/SteelBlueSilk.style
+  /usr/share/WindowMaker/autostart.sh
+  /usr/share/WindowMaker/exitscript.sh
+  /usr/share/WindowMaker/menu
+  /usr/share/WindowMaker/menu.bg
+  /usr/share/WindowMaker/menu.ca
+  /usr/share/WindowMaker/menu.cz
+  /usr/share/WindowMaker/menu.da
+  /usr/share/WindowMaker/menu.de
+  /usr/share/WindowMaker/menu.el
+  /usr/share/WindowMaker/menu.es
+  /usr/share/WindowMaker/menu.fi
+  /usr/share/WindowMaker/menu.fr
+  /usr/share/WindowMaker/menu.gl
+  /usr/share/WindowMaker/menu.he
+  /usr/share/WindowMaker/menu.hr
+  /usr/share/WindowMaker/menu.hu
+  /usr/share/WindowMaker/menu.it
+  /usr/share/WindowMaker/menu.ja
+  /usr/share/WindowMaker/menu.ko
+  /usr/share/WindowMaker/menu.nl
+  /usr/share/WindowMaker/menu.no
+  /usr/share/WindowMaker/menu.pl
+  /usr/share/WindowMaker/menu.pt
+  /usr/share/WindowMaker/menu.ro
+  /usr/share/WindowMaker/menu.ru
+  /usr/share/WindowMaker/menu.se
+  /usr/share/WindowMaker/menu.sk
+  /usr/share/WindowMaker/menu.sl
+  /usr/share/WindowMaker/menu.tr
+  /usr/share/WindowMaker/menu.zh_CN
+  /usr/share/WindowMaker/menu.zh_TW
+  /usr/share/WindowMaker/plmenu
+  /usr/share/WindowMaker/plmenu.bg
+  /usr/share/WindowMaker/plmenu.da
+  /usr/share/WindowMaker/plmenu.de
+  /usr/share/WindowMaker/plmenu.es
+  /usr/share/WindowMaker/plmenu.fi
+  /usr/share/WindowMaker/plmenu.fr
+  /usr/share/WindowMaker/plmenu.hr
+  /usr/share/WindowMaker/plmenu.it
+  /usr/share/WindowMaker/plmenu.ja
+  /usr/share/WindowMaker/plmenu.ko
+  /usr/share/WindowMaker/plmenu.pl
+  /usr/share/WindowMaker/plmenu.ro
+  /usr/share/WindowMaker/plmenu.sk
+  /usr/share/WindowMaker/plmenu.zh_CN
+  /usr/share/WindowMaker/plmenu.zh_TW
+  /usr/share/WindowMaker/wmmacros
+  /usr/share/WindowMaker/xtree.dat
+  /usr/share/doc/Cygwin/WindowMaker-0.92.0.README
+  /usr/share/doc/WindowMaker-0.92.0/AUTHORS
+  /usr/share/doc/WindowMaker-0.92.0/BUGFORM
+  /usr/share/doc/WindowMaker-0.92.0/BUGS
+  /usr/share/doc/WindowMaker-0.92.0/COPYING
+  /usr/share/doc/WindowMaker-0.92.0/COPYING.WTFPL
+  /usr/share/doc/WindowMaker-0.92.0/ChangeLog
+  /usr/share/doc/WindowMaker-0.92.0/FAQ
+  /usr/share/doc/WindowMaker-0.92.0/FAQ.I18N
+  /usr/share/doc/WindowMaker-0.92.0/FAQ.I18N.cs
+  /usr/share/doc/WindowMaker-0.92.0/FAQ.I18N.sk
+  /usr/share/doc/WindowMaker-0.92.0/INSTALL
+  /usr/share/doc/WindowMaker-0.92.0/INSTALL.cs
+  /usr/share/doc/WindowMaker-0.92.0/INSTALL.es
+  /usr/share/doc/WindowMaker-0.92.0/INSTALL.fr
+  /usr/share/doc/WindowMaker-0.92.0/INSTALL.pt
+  /usr/share/doc/WindowMaker-0.92.0/INSTALL.sk
+  /usr/share/doc/WindowMaker-0.92.0/MIRRORS
+  /usr/share/doc/WindowMaker-0.92.0/NEWS
+  /usr/share/doc/WindowMaker-0.92.0/README
+  /usr/share/doc/WindowMaker-0.92.0/README.definable-cursor
+  /usr/share/doc/WindowMaker-0.92.0/README.pt
+  /usr/share/doc/WindowMaker-0.92.0/TODO
+  /usr/share/man/man1/geticonset.1x.gz
+  /usr/share/man/man1/getstyle.1x.gz
+  /usr/share/man/man1/seticons.1x.gz
+  /usr/share/man/man1/setstyle.1x.gz
+  /usr/share/man/man1/wdwrite.1x.gz
+  /usr/share/man/man1/wmaker.1x.gz
+  /usr/share/man/man1/wmsetbg.1x.gz
+  /usr/share/man/man1/wxcopy.1x.gz
+  /usr/share/man/man1/wxpaste.1x.gz
+  /usr/share/man/sk/man1/geticonset.1x.gz
+  /usr/share/man/sk/man1/getstyle.1x.gz
+  /usr/share/man/sk/man1/seticons.1x.gz
+  /usr/share/man/sk/man1/setstyle.1x.gz
+  /usr/share/man/sk/man1/wdwrite.1x.gz
+  /usr/share/man/sk/man1/wmaker.1x.gz
+  /usr/share/man/sk/man1/wmsetbg.1x.gz
+  /usr/share/man/sk/man1/wxcopy.1x.gz
+  /usr/share/man/sk/man1/wxpaste.1x.gz
+
+Files included in the development package:
+
+  /usr/include/WINGs/WINGs.h
+  /usr/include/WINGs/WINGsP.h
+  /usr/include/WINGs/WUtil.h
+  /usr/include/WINGs/proplist-compat.h
+  /usr/include/WINGs/wtabledelegates.h
+  /usr/include/WINGs/wtableview.h
+  /usr/include/WMaker.h
+  /usr/include/wraster.h
+  /usr/lib/libExtraWINGs.a
+  /usr/lib/libWINGs.a
+  /usr/lib/libWMaker.a
+  /usr/lib/libWUtil.a
+  /usr/lib/libwraster.a
+  /usr/lib/libwraster.dll.a
+  /usr/lib/libwraster.la
+  /usr/lib/pkgconfig/WINGs.pc
+  /usr/lib/pkgconfig/wmlib.pc
+  /usr/lib/pkgconfig/wrlib.pc
+
+------------------
+
+Port Notes:
+
+----- version 0.92.0-1 -----
+Initial release for Cygwin.
+
+
+Cygwin port maintained by:
+http://cygwinports.dotsrc.org/

@@ -1,0 +1,8 @@
+category: X11
+requires: cygwin libX11_6 libXext6 libXft2 libXpm4 libjpeg62 libpng12 libtiff5 libungif4
+sdesc: "Window Maker GNUstep window manager"
+ldesc: "Window Maker is the GNU window manager for the X Window System.
+It was designed to emulate the look and feel of part of the NEXTSTEP(tm)
+GUI. It's supposed to be relatively fast and small, feature rich, easy
+to configure and easy to use, with a simple and elegant appearance
+borrowed from NEXTSTEP(tm)."

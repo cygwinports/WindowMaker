@@ -1,0 +1,20 @@
+DESCRIPTION="Window Maker window manager"
+HOMEPAGE="http://windowmaker.info/"
+SRC_URI="http://windowmaker.info/pub/source/release/${P}.tar.gz"
+
+USE_MANAGED_MOUNT=1
+
+DOCS="BUGFORM COPYING.WTFPL FAQ.I18N* INSTALL.* MIRRORS README.*"
+
+PKG_NAMES="${PN} ${PN}-devel"
+PKG_HINTS="setup devel"
+PKG_CONTENTS[0]='etc/ usr/bin/ usr/share/'
+PKG_CONTENTS[1]='usr/include/ usr/lib/'
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	# [Dd]efaultAppIcon.tiff :-(
+	make_managed_mount /usr/share/WindowMaker/Icons
+}

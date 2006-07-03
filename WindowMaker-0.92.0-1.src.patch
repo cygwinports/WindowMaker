@@ -1,0 +1,81 @@
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/WindowMaker-0.92.0/WINGs/Examples/Makefile.am src/WindowMaker-0.92.0/WINGs/Examples/Makefile.am
+--- origsrc/WindowMaker-0.92.0/WINGs/Examples/Makefile.am	2004-10-30 00:44:13.000000000 -0500
++++ src/WindowMaker-0.92.0/WINGs/Examples/Makefile.am	2006-07-03 15:53:22.546875000 -0500
+@@ -18,12 +18,12 @@
+ connect_DEPENDENCIES = $(top_builddir)/WINGs/libWUtil.a
+ 
+ connect_LDADD = $(top_builddir)/WINGs/libWUtil.a @LIBRARY_SEARCH_PATH@ \
+-	@NETLIBS@ @INTLIBS@
++	@XLIBS@ @NETLIBS@ @INTLIBS@
+ 
+ server_DEPENDENCIES = $(top_builddir)/WINGs/libWUtil.a
+ 
+ server_LDADD = $(top_builddir)/WINGs/libWUtil.a @LIBRARY_SEARCH_PATH@ \
+-	@NETLIBS@ @INTLIBS@
++	@XLIBS@ @NETLIBS@ @INTLIBS@
+ 
+ 
+ INCLUDES = -I$(top_srcdir)/WINGs -I$(top_srcdir)/wrlib -I$(top_srcdir)/src \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/WindowMaker-0.92.0/util/Makefile.am src/WindowMaker-0.92.0/util/Makefile.am
+--- origsrc/WindowMaker-0.92.0/util/Makefile.am	2004-10-23 16:27:48.000000000 -0500
++++ src/WindowMaker-0.92.0/util/Makefile.am	2006-07-03 15:53:22.562500000 -0500
+@@ -16,15 +16,15 @@
+ 
+ liblist= @LIBRARY_SEARCH_PATH@ @INTLIBS@
+ 
+-wdwrite_LDADD = $(top_builddir)/WINGs/libWUtil.a $(liblist)
++wdwrite_LDADD = $(top_builddir)/WINGs/libWUtil.a @XLFLAGS@ @XLIBS@ $(liblist)
+ 
+-wdread_LDADD = $(top_builddir)/WINGs/libWUtil.a $(liblist)
++wdread_LDADD = $(top_builddir)/WINGs/libWUtil.a @XLFLAGS@ @XLIBS@ $(liblist)
+ 
+ wxcopy_LDADD = @XLFLAGS@ @XLIBS@ 
+ 
+ wxpaste_LDADD = @XLFLAGS@ @XLIBS@
+ 
+-getstyle_LDADD = $(top_builddir)/WINGs/libWUtil.a $(liblist)
++getstyle_LDADD = $(top_builddir)/WINGs/libWUtil.a @XLFLAGS@ @XLIBS@ $(liblist)
+ 
+ getstyle_SOURCES = getstyle.c fontconv.c
+ 
+@@ -34,13 +34,13 @@
+ 
+ setstyle_SOURCES = setstyle.c fontconv.c
+ 
+-convertfonts_LDADD = $(top_builddir)/WINGs/libWUtil.a $(liblist)
++convertfonts_LDADD = $(top_builddir)/WINGs/libWUtil.a @XLFLAGS@ @XLIBS@ $(liblist)
+ 
+ convertfonts_SOURCES = convertfonts.c fontconv.c
+ 
+-seticons_LDADD= $(top_builddir)/WINGs/libWUtil.a $(liblist)
++seticons_LDADD= $(top_builddir)/WINGs/libWUtil.a @XLFLAGS@ @XLIBS@ $(liblist)
+ 
+-geticonset_LDADD= $(top_builddir)/WINGs/libWUtil.a $(liblist)
++geticonset_LDADD= $(top_builddir)/WINGs/libWUtil.a @XLFLAGS@ @XLIBS@ $(liblist)
+ 
+ wmagnify_LDADD = \
+ 	$(top_builddir)/WINGs/libWINGs.a \
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/WindowMaker-0.92.0/wrlib/Makefile.am src/WindowMaker-0.92.0/wrlib/Makefile.am
+--- origsrc/WindowMaker-0.92.0/wrlib/Makefile.am	2005-01-06 09:33:36.000000000 -0600
++++ src/WindowMaker-0.92.0/wrlib/Makefile.am	2006-07-03 15:53:22.578125000 -0500
+@@ -6,7 +6,7 @@
+ 
+ lib_LTLIBRARIES = libwraster.la
+ 
+-libwraster_la_LDFLAGS = -version-info 4:0:1
++libwraster_la_LDFLAGS = -version-info 4:0:1 -no-undefined
+ 
+ bin_SCRIPTS = get-wraster-flags
+ 
+diff -urN -x CYGWIN-PATCHES -x 'aclocal.m4*' -x ltmain.sh -x 'config.*' -x depcomp -x install-sh -x missing -x mkinstalldirs -x autom4te.cache -x '*compile' -x 'intltool*.in' -x 'xml-i18n-*.in' -x '*.pyc' -x '*.mo' -x '*.gmo' -x ABOUT-NLS -x Makevars.template -x COPYING -x INSTALL -x '*.orig' -x '*.rej' -x '*~' -x '*.temp' -x texinfo.tex -x ylwrap -x 'Makefile.in*' -x configure -x gnome-doc-utils.make -x intltool.m4 -x omf.make -x xmldocs.make origsrc/WindowMaker-0.92.0/wrlib/tests/Makefile.am src/WindowMaker-0.92.0/wrlib/tests/Makefile.am
+--- origsrc/WindowMaker-0.92.0/wrlib/tests/Makefile.am	2005-03-02 04:09:45.000000000 -0600
++++ src/WindowMaker-0.92.0/wrlib/tests/Makefile.am	2006-07-03 15:53:22.578125000 -0500
+@@ -6,7 +6,7 @@
+ 
+ EXTRA_DIST = test.png tile.xpm ballot_box.xpm 
+ 
+-INCLUDES = -I.. $(DFLAGS) @HEADER_SEARCH_PATH@
++INCLUDES = -I$(top_srcdir)/wrlib $(DFLAGS) @HEADER_SEARCH_PATH@
+ 
+ LIBLIST = $(top_builddir)/wrlib/libwraster.la
+ 
