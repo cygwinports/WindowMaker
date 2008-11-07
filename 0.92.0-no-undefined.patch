@@ -64,14 +64,3 @@
  
  bin_SCRIPTS = get-wraster-flags
  
---- origsrc/WindowMaker-0.92.0/wrlib/tests/Makefile.am	2005-03-02 04:09:45.000000000 -0600
-+++ src/WindowMaker-0.92.0/wrlib/tests/Makefile.am	2006-07-03 15:53:22.578125000 -0500
-@@ -6,7 +6,7 @@
- 
- EXTRA_DIST = test.png tile.xpm ballot_box.xpm 
- 
--INCLUDES = -I.. $(DFLAGS) @HEADER_SEARCH_PATH@
-+INCLUDES = -I$(top_srcdir)/wrlib $(DFLAGS) @HEADER_SEARCH_PATH@
- 
- LIBLIST = $(top_builddir)/wrlib/libwraster.la
- 
