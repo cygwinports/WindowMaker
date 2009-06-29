@@ -1,5 +1,5 @@
 category: X11
-requires: cygwin libfontconfig-devel libwraster-devel libX11-devel libXext-devel libXft-devel
+requires: libfontconfig-devel libwraster-devel libX11-devel libXext-devel libXft-devel
 external-source: WindowMaker
 sdesc: "Window Maker widget set library"
 ldesc: "Window Maker is the GNU window manager for the X Window System.

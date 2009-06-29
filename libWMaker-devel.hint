@@ -1,5 +1,5 @@
 category: X11
-requires: cygwin libX11-devel
+requires: libX11-devel
 external-source: WindowMaker
 sdesc: "Window Maker interface library"
 ldesc: "Window Maker is the GNU window manager for the X Window System.
