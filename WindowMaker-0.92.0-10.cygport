@@ -42,8 +42,6 @@ PATCH_URI="
 	0.92.0-no-undefined.patch
 "
 
-USE_MANAGED_MOUNT=1
-
 PKG_NAMES="${PN} libwraster3 libwraster-devel libWMaker-devel libWINGs-devel"
 PKG_HINTS="setup libwraster3 libwraster-devel libWMaker-devel libWINGs-devel"
 WindowMaker_CONTENTS='--exclude=*.dll --exclude=get-*-flags etc/ usr/bin/ usr/share/'
@@ -83,12 +81,12 @@ src_install() {
 	cd ${B}
 	cyginstall
 
+	# .exe handling :-(
+	strip ${D}/usr/bin/* 2>/dev/null || true
+
 	sed -e 's|/usr/local/share/WindowMaker|/usr/share/WindowMaker|g;' \
 		-e 's|/opt/share/WindowMaker|/usr/share/WindowMaker|g;' \
 		-e "s|/usr/local/GNUstep/Applications/WPrefs.app|/usr/bin|g;" \
 		-i ${D}/usr/share/${PN}/*menu*
-
-	# [Dd]efaultAppIcon.tiff :-(
-	make_managed_mount /usr/share/WindowMaker/Icons
 }
 DOCS="BUGFORM COPYING.WTFPL FAQ.I18N* INSTALL.* MIRRORS README.*"
