@@ -1,0 +1,39 @@
+DESCRIPTION="Window Maker window manager"
+HOMEPAGE="http://windowmaker.info/"
+SRC_URI="http://windowmaker.org/pub/source/beta/${P}.tar.gz"
+PATCH_URI="0.92.0-no-undefined.patch"
+
+PKG_NAMES="${PN} libwraster3 libwraster-devel libWMaker-devel libWINGs-devel"
+PKG_HINTS="setup libwraster3 libwraster-devel libWMaker-devel libWINGs-devel"
+WindowMaker_CONTENTS='--exclude=*.dll --exclude=get-*-flags etc/ usr/bin/ usr/share/'
+libwraster3_CONTENTS="usr/bin/cygwraster-3.dll"
+libwraster_devel_CONTENTS="usr/bin/get-wraster-flags usr/include/wraster.h
+                           usr/lib/libwraster.* usr/lib/pkgconfig/wrlib.pc"
+libWMaker_devel_CONTENTS="usr/include/WMaker.h usr/lib/libWMaker.a"
+libWINGs_devel_CONTENTS="usr/bin/get-wings-flags usr/bin/get-wutil-flags
+                         usr/include/WINGs/ usr/lib/lib*WINGs.a usr/lib/libWUtil.a
+                         usr/lib/pkgconfig/WINGs.pc usr/lib/pkgconfig/wmlib.pc"
+
+src_compile() {
+	cd ${S}
+	cygautoreconf
+	export LINGUAS="$(ls po/*.po | sed 's|po/\(.*\)\.po$|\1|')"
+	cd ${B}
+	cygconf \
+		--sysconfdir=/etc/X11 \
+		--enable-usermenu \
+		--with-nlsdir=/usr/share/locale \
+		--with-pixmapdir=/usr/share/pixmaps
+	cygmake
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+
+	sed -e 's|/usr/local/share/WindowMaker|/usr/share/WindowMaker|g;' \
+		-e 's|/opt/share/WindowMaker|/usr/share/WindowMaker|g;' \
+		-e "s|/usr/local/GNUstep/Applications/WPrefs.app|/usr/bin|g;" \
+		-i ${D}/usr/share/${PN}/*menu*
+}
+DOCS="BUGFORM COPYING.WTFPL FAQ.I18N* INSTALL.* MIRRORS README.*"
