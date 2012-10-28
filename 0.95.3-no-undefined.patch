@@ -1,0 +1,56 @@
+--- origsrc/WindowMaker-0.95.3/WINGs/Makefile.am	2012-05-24 16:28:15.000000000 -0500
++++ src/WindowMaker-0.95.3/WINGs/Makefile.am	2012-10-26 01:29:00.826627500 -0500
+@@ -4,8 +4,8 @@ AUTOMAKE_OPTIONS =
+ 
+ SUBDIRS = WINGs . po Documentation Resources
+ 
+-libWINGs_la_LDFLAGS = -version-info @WINGS_VERSION@
+-libWUtil_la_LDFLAGS = -version-info @WUTIL_VERSION@
++libWINGs_la_LDFLAGS = -version-info @WINGS_VERSION@ -no-undefined
++libWUtil_la_LDFLAGS = -version-info @WUTIL_VERSION@ -no-undefined
+ 
+ bin_SCRIPTS = get-wings-flags get-wutil-flags
+ 
+@@ -14,7 +14,7 @@ lib_LTLIBRARIES = libWUtil.la libWINGs.l
+ 
+ LDADD= libWUtil.la libWINGs.la $(top_builddir)/wrlib/libwraster.la @INTLIBS@
+ libWINGs_la_LIBADD = libWUtil.la $(top_builddir)/wrlib/libwraster.la @XLIBS@ @XFTLIBS@ @FCLIBS@ @LIBM@
+-libWUtil_la_LIBADD = @LIBBSD@
++libWUtil_la_LIBADD = @LIBBSD@ @INTLIBS@
+ 
+ EXTRA_DIST = BUGS make-rgb Examples Extras Tests get-wings-flags.in get-wutil-flags.in
+ 
+--- origsrc/WindowMaker-0.95.3/test/Makefile.am	2012-05-24 16:28:16.000000000 -0500
++++ src/WindowMaker-0.95.3/test/Makefile.am	2012-10-26 01:15:00.465248600 -0500
+@@ -13,7 +13,7 @@ wtest_LDADD = $(top_builddir)/wmlib/libW
+ 
+ INCLUDES = -g -D_BSD_SOURCE @XCFLAGS@ -I$(top_srcdir)/wmlib 
+ 
+-LIBTOOL = $(QUIET) $(SHELL) $(top_srcdir)/libtool $(LIBTOOL_ARG)
++LIBTOOL = $(QUIET) $(SHELL) $(top_builddir)/libtool $(LIBTOOL_ARG)
+ 
+ .c.o:
+ 	$(QUIET)$(COMPILE) -c $<
+--- origsrc/WindowMaker-0.95.3/wmlib/Makefile.am	2012-05-24 16:28:16.000000000 -0500
++++ src/WindowMaker-0.95.3/wmlib/Makefile.am	2012-10-26 01:14:05.888561700 -0500
+@@ -1,7 +1,8 @@
+ 
+ AUTOMAKE_OPTIONS = no-dependencies
+ 
+-libWMaker_la_LDFLAGS = -version-info 1:1:0
++libWMaker_la_LDFLAGS = -version-info 1:1:0 -no-undefined
++libWMaker_la_LIBADD = @XLIBS@
+ lib_LTLIBRARIES = libWMaker.la
+ 
+ include_HEADERS = WMaker.h
+--- origsrc/WindowMaker-0.95.3/wrlib/Makefile.am	2012-05-24 16:28:16.000000000 -0500
++++ src/WindowMaker-0.95.3/wrlib/Makefile.am	2012-10-26 01:03:43.488886400 -0500
+@@ -8,7 +8,7 @@ EXTRA_DIST = tests libwraster.map get-wr
+ 
+ lib_LTLIBRARIES = libwraster.la
+ 
+-libwraster_la_LDFLAGS = -version-info @WRASTER_VERSION@
++libwraster_la_LDFLAGS = -version-info @WRASTER_VERSION@ -no-undefined
+ 
+ if HAVE_LD_VERSION_SCRIPT
+ libwraster_la_LDFLAGS += -Wl,--version-script=$(srcdir)/libwraster.map
