@@ -20,17 +20,6 @@
  
  EXTRA_DIST = BUGS make-rgb Examples Extras Tests get-wings-flags.in get-wutil-flags.in
  
---- origsrc/WindowMaker-0.95.3/test/Makefile.am	2012-05-24 16:28:16.000000000 -0500
-+++ src/WindowMaker-0.95.3/test/Makefile.am	2012-10-26 01:15:00.465248600 -0500
-@@ -13,7 +13,7 @@ wtest_LDADD = $(top_builddir)/wmlib/libW
- 
- INCLUDES = -g -D_BSD_SOURCE @XCFLAGS@ -I$(top_srcdir)/wmlib 
- 
--LIBTOOL = $(QUIET) $(SHELL) $(top_srcdir)/libtool $(LIBTOOL_ARG)
-+LIBTOOL = $(QUIET) $(SHELL) $(top_builddir)/libtool $(LIBTOOL_ARG)
- 
- .c.o:
- 	$(QUIET)$(COMPILE) -c $<
 --- origsrc/WindowMaker-0.95.3/wmlib/Makefile.am	2012-05-24 16:28:16.000000000 -0500
 +++ src/WindowMaker-0.95.3/wmlib/Makefile.am	2012-10-26 01:14:05.888561700 -0500
 @@ -1,7 +1,8 @@

@@ -1,5 +1,5 @@
 NAME="WindowMaker"
-VERSION=0.95.3
+VERSION=0.95.4
 RELEASE=1
 CATEGORY="X11"
 SUMMARY="GNUstep window manager"
@@ -11,19 +11,25 @@ HOMEPAGE="http://windowmaker.org/"
 SRC_URI="http://windowmaker.org/pub/source/release/${NAME}-${VERSION}.tar.gz"
 PATCH_URI="0.95.3-no-undefined.patch"
 
-PKG_NAMES="${PN} libwraster3 libwraster-devel libWMaker1 libWMaker-devel libWINGs2 libWINGs-devel"
+PKG_NAMES="${NAME} libwraster3 libwraster-devel libWMaker1 libWMaker-devel libWINGs2 libWINGs-devel"
 WindowMaker_CONTENTS='--exclude=*.dll --exclude=get-*-flags etc/ usr/bin/ usr/share/'
+libwraster3_CATEGORY="Libs"
 libwraster3_SUMMARY="Window Maker rasterizer library (runtime)"
 libwraster3_CONTENTS="usr/bin/cygwraster-3.dll"
+libwraster_devel_CATEGORY="Libs"
 libwraster_devel_SUMMARY="Window Maker rasterizer library (runtime)"
 libwraster_devel_CONTENTS="usr/bin/get-wraster-flags usr/include/wraster.h
                            usr/lib/libwraster.* usr/lib/pkgconfig/wrlib.pc"
+libWMaker1_CATEGORY="Libs"
 libWMaker1_SUMMARY="Window Maker interface library (runtime)"
 libWMaker1_CONTENTS="usr/bin/cygWMaker-1.dll"
+libWMaker_devel_CATEGORY="Libs"
 libWMaker_devel_SUMMARY="Window Maker interface library (development)"
 libWMaker_devel_CONTENTS="usr/include/WMaker.h usr/lib/libWMaker.dll.a"
+libWINGs2_CATEGORY="Libs"
 libWINGs2_SUMMARY="Window Maker widget set library (runtime)"
 libWINGs2_CONTENTS="usr/bin/cygWINGs-2.dll usr/bin/cygWUtil-2.dll"
+libWINGs_devel_CATEGORY="Libs"
 libWINGs_devel_SUMMARY="Window Maker widget set library (development)"
 libWINGs_devel_CONTENTS="usr/bin/get-wings-flags usr/bin/get-wutil-flags
                          usr/include/WINGs/ usr/lib/lib*WINGs.*
@@ -53,7 +59,7 @@ src_install() {
 	sed -e 's|/usr/local/share/WindowMaker|/usr/share/WindowMaker|g;' \
 		-e 's|/opt/share/WindowMaker|/usr/share/WindowMaker|g;' \
 		-e "s|/usr/local/GNUstep/Applications/WPrefs.app|/usr/bin|g;" \
-		-i ${D}/usr/share/${PN}/*menu*
+		-i ${D}/usr/share/${NAME}/*menu*
 }
 DOCS="BUGFORM COPYING.WTFPL FAQ.I18N* INSTALL.* MIRRORS README.*"
 KEEP_LA_FILES="none"
