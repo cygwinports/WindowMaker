@@ -1,0 +1,78 @@
+--- origsrc/WindowMaker-0.95.8/WindowMaker/Defaults/Makefile.am	2017-03-13 10:25:53.000000000 -0500
++++ src/WindowMaker-0.95.8/WindowMaker/Defaults/Makefile.am	2017-11-09 13:01:34.695917800 -0600
+@@ -2,7 +2,7 @@ defsdata_DATA = WMRootMenu WMWindowAttri
+ 
+ wpexecbindir = @wprefs_bindir@
+ 
+-EXTRA_DIST = WMGLOBAL WMWindowAttributes.in WindowMaker.in WMState.in
++EXTRA_DIST = WMGLOBAL WMWindowAttributes.in WindowMaker.in WMRootMenu.in WMState.in
+ 
+ CLEANFILES = WMWindowAttributes WindowMaker WMState WMRootMenu
+ 
+@@ -20,5 +20,6 @@ WMState: $(srcdir)/WMState.in
+ 	$(AM_V_GEN)sed -e "s:#wprefs#:$(wpexecbindir)/WPrefs:" $(srcdir)/WMState.in > WMState ; \
+ 	chmod 644 WMState
+ 
+-WMRootMenu: ./../plmenu
+-	$(AM_V_GEN)cp -f ./../plmenu WMRootMenu
++WMRootMenu: $(srcdir)/WMRootMenu.in
++	$(AM_V_GEN)sed -e "s:#wmdatadir#:$(pkgdatadir):;s:#wprefs#:$(wpexecbindir)/WPrefs:" $< > $@ ; \
++	chmod 644 WindowMaker
+--- origsrc/WindowMaker-0.95.8/WindowMaker/Defaults/WMRootMenu.in	1969-12-31 18:00:00.000000000 -0600
++++ src/WindowMaker-0.95.8/WindowMaker/Defaults/WMRootMenu.in	2017-11-09 13:01:43.136815600 -0600
+@@ -0,0 +1,55 @@
++("Applications",
++ ("Info",
++  ("Info Panel", INFO_PANEL),
++  ("Legal", LEGAL_PANEL)
++ ),
++ ("Run...", SHEXEC, "%a(Run,Type command to run:)"),
++ ("Workspaces", WORKSPACE_MENU),
++ ("Applications",
++   OPEN_PLMENU,
++   "|| wmmenugen -parser:xdg /usr/share/applications"
++ ),
++ ("Commands",
++  ("Hide Others", HIDE_OTHERS),
++  ("Show All", SHOW_ALL),
++  ("Arrange Icons", ARRANGE_ICONS),
++  ("Refresh", REFRESH)
++ ),
++ ("Appearance",
++  ("Themes", OPEN_MENU, "-noext #wmdatadir#/Themes $HOME/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
++  ("Styles", OPEN_MENU, "-noext #wmdatadir#/Styles $HOME/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
++  ("Icon Sets", OPEN_MENU, "-noext #wmdatadir#/IconSets $HOME/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
++  ("Background",
++   ("Solid",
++	("Black", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, black)'"),
++	("Blue",  EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#505075\")'"),
++	("Indigo", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#243e6c\")'"),
++	("Bluemarine", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#224477\")'"),
++	("Purple", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#554466\")'"),
++	("Wheat", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, wheat4)'"),
++	("Dark Gray", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#333340\")'"),
++	("Wine", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#400020\")'")
++   ),
++   ("Gradient",
++	("Sunset", EXEC, "wdwrite WindowMaker WorkspaceBack '(mvgradient, deepskyblue4, black, deepskyblue4, tomato4)'"),
++	("Sky", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, blue4, white)'"),
++	("Blue Shades",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#7080a5\", \"#101020\")'"),
++	("Indigo Shades", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#746ebc\", \"#242e4c\")'"),
++	("Purple Shades", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#654c66\", \"#151426\")'"),
++	("Wheat Shades",  EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#a09060\", \"#302010\")'"),
++	("Grey Shades",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#636380\", \"#131318\")'"),
++	("Wine Shades",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#600040\", \"#180010\")'")
++   ),
++   ("Images", OPEN_MENU, "-noext #wmdatadir#/Backgrounds $HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
++   ),
++   ("Save Theme", SHEXEC, "getstyle -t $HOME/GNUstep/Library/WindowMaker/Themes/\"%a(Theme name)\""),
++   ("Save IconSet", SHEXEC, "geticonset $HOME/GNUstep/Library/WindowMaker/IconSets/\"%a(IconSet name)\""),
++   ("Preferences Utility", EXEC, "#wprefs#")
++   ),
++   ("Session",
++    ("Save Session", SAVE_SESSION),
++    ("Clear Session", CLEAR_SESSION),
++	("Restart Window Maker", RESTART),
++	("Exit", EXIT)
++   )
++)
