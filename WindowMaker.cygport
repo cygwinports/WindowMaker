@@ -1,6 +1,6 @@
 NAME="WindowMaker"
 VERSION=0.95.8
-RELEASE=1
+RELEASE=2
 CATEGORY="X11"
 SUMMARY="GNUstep window manager"
 DESCRIPTION="Window Maker is an X11 window manager originally designed to
